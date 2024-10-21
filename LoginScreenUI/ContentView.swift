@@ -6,61 +6,82 @@
 //
 
 import SwiftUI
-import SwiftData
+
 
 struct ContentView: View {
-    @Environment(\.modelContext) private var modelContext
-    @Query private var items: [Item]
-
+    @State private var username = ""
+    @State private var password = ""
+    @State private var wrongUsername = 0
+    @State private var wrongPassword = 0
+    @State private var showingLoginScreen = false
     var body: some View {
-        NavigationSplitView {
-            List {
-                ForEach(items) { item in
-                    NavigationLink {
-                        Text("Item at \(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))")
-                    } label: {
-                        Text(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))
+        NavigationView {
+            ZStack {
+                Color.blue
+                    .ignoresSafeArea()
+                Circle ()
+                    .scale(1.7)
+                    .foregroundColor(.white.opacity(0.15))
+                Circle()
+                    .scale (1.35)
+                    .foregroundColor((.white))
+                VStack {
+                    Text("Login")
+                        .font (.largeTitle)
+                        .bold()
+                        .padding()
+                    TextField("Username",text: $username)
+                        .padding()
+                        .frame (width: 300 , height: 50)
+                        .background (Color.black.opacity(0.05))
+                        .cornerRadius(10)
+                        .border(.red,width: CGFloat(wrongUsername))
+
+                    SecureField("Password",text: $password)
+                        .padding()
+                        .frame (width: 300 , height: 50)
+                        .background (Color.black.opacity(0.05))
+                        .cornerRadius(10)
+                        .border(.red,width: CGFloat(wrongPassword))
+
+                    Button ("Login") {
+
+                        authenticate (username: username, password: password)
+
                     }
-                }
-                .onDelete(perform: deleteItems)
-            }
-#if os(macOS)
-            .navigationSplitViewColumnWidth(min: 180, ideal: 200)
-#endif
-            .toolbar {
-#if os(iOS)
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    EditButton()
-                }
-#endif
-                ToolbarItem {
-                    Button(action: addItem) {
-                        Label("Add Item", systemImage: "plus")
+                    .foregroundColor(.white)
+                    .frame(width: 300, height: 50)
+                    .background(Color.blue)
+                    .cornerRadius(10)
+
+                    NavigationLink(destination: Text("You are logged in @\(username)") , isActive: $showingLoginScreen){
+                        EmptyView()
                     }
+
                 }
             }
-        } detail: {
-            Text("Select an item")
+
+        }.navigationBarHidden(true)
+
+    }
+
+    func authenticate(username: String, password: String){
+        if username.lowercased() == "testuser" {
+            wrongUsername = 0
+            if password.lowercased() == "test1234" {
+                wrongPassword = 0
+                showingLoginScreen = true
+            }else {
+                wrongPassword = 2
+            }
+        }else {
+                wrongUsername = 2
+            }
         }
     }
 
-    private func addItem() {
-        withAnimation {
-            let newItem = Item(timestamp: Date())
-            modelContext.insert(newItem)
-        }
-    }
 
-    private func deleteItems(offsets: IndexSet) {
-        withAnimation {
-            for index in offsets {
-                modelContext.delete(items[index])
-            }
-        }
-    }
-}
 
 #Preview {
     ContentView()
-        .modelContainer(for: Item.self, inMemory: true)
 }
