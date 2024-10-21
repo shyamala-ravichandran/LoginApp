@@ -12,8 +12,6 @@
 		1B40B9D72CC6690A004F2565 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B40B9D62CC6690A004F2565 /* Item.swift */; };
 		1B40B9D92CC6690B004F2565 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B40B9D82CC6690B004F2565 /* Assets.xcassets */; };
 		1B40B9DD2CC6690B004F2565 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B40B9DC2CC6690B004F2565 /* Preview Assets.xcassets */; };
-		1B40B9EA2CC66F5A004F2565 /* LoginUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B40B9E92CC66F5A004F2565 /* LoginUITests.swift */; };
-		1B40B9EC2CC66F5A004F2565 /* LoginUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B40B9EB2CC66F5A004F2565 /* LoginUITestsLaunchTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,8 +33,6 @@
 		1B40B9DA2CC6690B004F2565 /* LoginScreenUI.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LoginScreenUI.entitlements; sourceTree = "<group>"; };
 		1B40B9DC2CC6690B004F2565 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		1B40B9E72CC66F5A004F2565 /* LoginUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LoginUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		1B40B9E92CC66F5A004F2565 /* LoginUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUITests.swift; sourceTree = "<group>"; };
-		1B40B9EB2CC66F5A004F2565 /* LoginUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUITestsLaunchTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,7 +57,6 @@
 			isa = PBXGroup;
 			children = (
 				1B40B9D12CC6690A004F2565 /* LoginScreenUI */,
-				1B40B9E82CC66F5A004F2565 /* LoginUITests */,
 				1B40B9D02CC6690A004F2565 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -94,15 +89,6 @@
 				1B40B9DC2CC6690B004F2565 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		1B40B9E82CC66F5A004F2565 /* LoginUITests */ = {
-			isa = PBXGroup;
-			children = (
-				1B40B9E92CC66F5A004F2565 /* LoginUITests.swift */,
-				1B40B9EB2CC66F5A004F2565 /* LoginUITestsLaunchTests.swift */,
-			);
-			path = LoginUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -215,8 +201,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1B40B9EC2CC66F5A004F2565 /* LoginUITestsLaunchTests.swift in Sources */,
-				1B40B9EA2CC66F5A004F2565 /* LoginUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

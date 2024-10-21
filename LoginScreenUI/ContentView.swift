@@ -20,7 +20,7 @@ struct ContentView: View {
                 Color.blue
                     .ignoresSafeArea()
                 Circle ()
-                    .scale(1.7)
+                    .scale(1.511)
                     .foregroundColor(.white.opacity(0.15))
                 Circle()
                     .scale (1.35)
